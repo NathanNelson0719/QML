@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Group 5 image.jpg</file>
+        <file>Group 5 Image2.jpg</file>
+        <file>EnterButton.jpg</file>
+        <file>exitButton.png</file>
+        <file>movie-selector.qml</file>
+        <file>home.qml</file>
+        <file>Testing.png</file>
+        <file>admisson ticket.jpg</file>
+        <file>Movie Selector text.png</file>
+        <file>click-me-button-flat.png</file>
+    </qresource>
+</RCC>
