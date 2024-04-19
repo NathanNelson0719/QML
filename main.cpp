@@ -2,6 +2,8 @@
 #include <QQmlApplicationEngine>
 #include <QQuickView>
 #include "TestSignal.h"
+#include "CFantasyMovies.h"
+#include "creadfile.h"
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -9,6 +11,13 @@ int main(int argc, char *argv[])
 #endif
 
     TestSignal test;
+    CReadFile fileReader;
+    CFantasyMovies CFantasyMovie;
+
+    fileReader.readFile("C:\\Users\\cheet\\OneDrive\\Desktop\\QT stuff\\Csci300FinalTask\\input.txt");
+    CFantasyMovie.setEvenStack(fileReader.getStackEven());
+    CFantasyMovie.setOddStack(fileReader.getStackOdd());
+
     QGuiApplication app(argc, argv);
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -17,8 +26,8 @@ int main(int argc, char *argv[])
     QObject *topLevel = engine.rootObjects().at(0);
     QQuickWindow *window = qobject_cast<QQuickWindow*>(topLevel);
 
-    QObject::connect(window, SIGNAL(changeRequest(QString)), &test,SLOT(getRequest(QString)));
-    QObject::connect(&test, SIGNAL(returnAnswer(QVariant)), window, SLOT(changeTitle(QVariant)));
+    QObject::connect(window, SIGNAL(changeRequest(QString)), &CFantasyMovie,SLOT(processNumber(QString)));
+    QObject::connect(&CFantasyMovie, SIGNAL(movieSelected(QVariant)), window, SLOT(changeTitle(QVariant)));
 
 
     return app.exec();

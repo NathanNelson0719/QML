@@ -5,7 +5,10 @@ QT += quick
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        CFantasyMovies.cpp \
+        CRandom.cpp \
         TestSignal.cpp \
+        creadfile.cpp \
         main.cpp
 
 RESOURCES += \
@@ -24,4 +27,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    TestSignal.h
+    CFantasyMovies.h \
+    CRandom.h \
+    TestSignal.h \
+    creadfile.h
+
+DISTFILES += \
+    MovieList2.txt \
+    input.txt
