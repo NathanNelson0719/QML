@@ -14,11 +14,10 @@ class CFantasyMovies : public QObject
 public:
   explicit CFantasyMovies(QObject *parent = nullptr);
 
-    void setOddStack(QStack<QString> stack);
+  void setOddStack(QStack<QString> stack);
   void setEvenStack(QStack<QString> stack);
 public slots:
   void processNumber(QString number);
-  void onStacksFilled();
 
 signals:
   void movieSelected(QVariant movie);
@@ -27,6 +26,7 @@ signals:
 private:
   QStack<QString> stack_odd;
   QStack<QString> stack_even;
+  int currentNumber;
   CReadFile fileReader;
 };
 

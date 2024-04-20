@@ -4,6 +4,8 @@
 #include "TestSignal.h"
 #include "CFantasyMovies.h"
 #include "creadfile.h"
+#include <QDebug>
+#include <QDir>
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -14,7 +16,7 @@ int main(int argc, char *argv[])
     CReadFile fileReader;
     CFantasyMovies CFantasyMovie;
 
-    fileReader.readFile("C:\\Users\\cheet\\OneDrive\\Desktop\\QT stuff\\Csci300FinalTask\\input.txt");
+    fileReader.readFile("input.txt");
     CFantasyMovie.setEvenStack(fileReader.getStackEven());
     CFantasyMovie.setOddStack(fileReader.getStackOdd());
 
@@ -28,7 +30,6 @@ int main(int argc, char *argv[])
 
     QObject::connect(window, SIGNAL(changeRequest(QString)), &CFantasyMovie,SLOT(processNumber(QString)));
     QObject::connect(&CFantasyMovie, SIGNAL(movieSelected(QVariant)), window, SLOT(changeTitle(QVariant)));
-
 
     return app.exec();
 }

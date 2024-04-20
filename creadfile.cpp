@@ -17,9 +17,12 @@ void CReadFile::readFile(const QString& filename) {
     QTextStream stream(&file);
     while (!stream.atEnd()) {
         title = stream.readLine();
+        qDebug() << "read title: " << title;
         if (sequence % 2 == 0) {
+            qDebug() << "added title: " << title << " to even stack";
             stack_even.push(title);
         } else {
+            qDebug() << "added title: " << title << " to odd stack";
             stack_odd.push(title);
         }
         sequence++;

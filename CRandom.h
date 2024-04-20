@@ -4,12 +4,15 @@
 
 #include <cstdlib>
 #include <ctime>
-
+#include <QString>
+#include <QObject>
+#include <QStack>
 class CRandom
 {
 public:
-  CRandom();
-  int getRandomNumber(int max);
+    explicit CRandom();
+    int getRandomNumber(int max);
+    QString getRandomTitle(QStack<QString> &stack);
 };
 
 #endif // CRANDOM_H
