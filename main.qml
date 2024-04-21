@@ -15,7 +15,7 @@ Window {
     function changeTitle(text){
         movieTitle = text
      }
-    property string movieTitle: "test"
+    property string movieTitle: ""
 
     Loader {
         id: pageLoader

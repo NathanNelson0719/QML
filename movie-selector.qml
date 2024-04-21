@@ -36,6 +36,24 @@ Item {
         }
     }
 
+    Image {
+        id: backButton
+        property int size: 80
+        source: "back button.png"
+        x:0
+        y:movieSelectorBackground.height-size
+        width: size
+        height: size
+
+        MouseArea{
+            id:backArea
+            anchors.fill: parent
+            onClicked: {
+                pageLoader.source = "home.qml"
+            }
+    }
+    }
+
 
      TextField{
         id:textField
@@ -71,9 +89,9 @@ Item {
         Text{
             text: movieTitle
             anchors.centerIn: parent
-            font.pixelSize: 25
+            font.pixelSize: 20
         }
 
      }
-
 }
+

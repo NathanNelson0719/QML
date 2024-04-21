@@ -1,22 +1,23 @@
 #ifndef CREADFILE_H
 #define CREADFILE_H
 
-#include <stack>
-#include <string>
-
+#include <QStack>
+#include <QString>
+#include <QFile>
+#include <QTextStream>
 class CReadFile {
 private:
-    std::stack<std::string> stack_odd;
-    std::stack<std::string> stack_even;
+    QStack<QString> stack_odd;
+    QStack<QString> stack_even;
 
 public:
     CReadFile();
 
-    void readFile(const std::string& filename);
+    void readFile(const QString& filename);
 
-    std::stack<std::string> getStackOdd() const;
+    QStack<QString> getStackOdd() const;
 
-    std::stack<std::string> getStackEven() const;
+    QStack<QString> getStackEven() const;
 };
 
 #endif // CREADFILE_H

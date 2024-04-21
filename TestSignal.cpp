@@ -4,10 +4,16 @@ TestSignal::TestSignal(QObject *parent) : QObject (parent)
 
 }
 
-void TestSignal::getRequest(const QString &msg){
-    qDebug() << "msg from QML: " << msg;
-    std::string text;
-    text = "new movie title";
-    QString value = QString::fromStdString(text);
-    emit returnAnswer(QVariant(value));
+void TestSignal::getEvenTitle(){
+}
+
+void TestSignal::getOddTitle(){
+}
+
+void TestSignal::setEvenStack(QStack<QString> stack){
+    stack_even = stack;
+}
+
+void TestSignal::setOddStack(QStack<QString> stack){
+    stack_odd = stack;
 }
