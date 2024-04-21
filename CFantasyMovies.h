@@ -21,7 +21,7 @@ public slots:
 
 signals:
   void movieSelected(QVariant movie);
-  void requestFileRead(QString fileName);
+
 
 private:
   QStack<QString> stack_odd;

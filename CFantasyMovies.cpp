@@ -9,7 +9,7 @@ void CFantasyMovies::processNumber(QString number)
 {
     CRandom random;
     int num = number.toInt();
-    if (currentNumber != num)
+    if (currentNumber != num) //if the number is the same, do nothing.
     {
         currentNumber = num;
         QStack<QString> *selectedStack;
@@ -37,6 +37,8 @@ void CFantasyMovies::processNumber(QString number)
 
         // Temporary stack to hold other items
         QStack<QString> stack_temp;
+
+         //find and remoive selecetd movie from stack.
         while (!selectedStack->isEmpty() && selectedStack->top() != selectedMovie) {
             stack_temp.push(selectedStack->top());
             selectedStack->pop();
@@ -59,4 +61,3 @@ void CFantasyMovies::setOddStack(QStack<QString> stack){
 void CFantasyMovies::setEvenStack(QStack<QString> stack){
         stack_even = stack;
     }
-\

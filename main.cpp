@@ -16,7 +16,9 @@ int main(int argc, char *argv[])
     CReadFile fileReader;
     CFantasyMovies CFantasyMovie;
 
-    fileReader.readFile("input.txt");
+    fileReader.readFile("input.txt"); // read input file.
+
+    //copy stacks from fileReader to the stacks in CFantasyMovies
     CFantasyMovie.setEvenStack(fileReader.getStackEven());
     CFantasyMovie.setOddStack(fileReader.getStackOdd());
 
@@ -28,6 +30,7 @@ int main(int argc, char *argv[])
     QObject *topLevel = engine.rootObjects().at(0);
     QQuickWindow *window = qobject_cast<QQuickWindow*>(topLevel);
 
+    //CONNECTIONS
     QObject::connect(window, SIGNAL(changeRequest(QString)), &CFantasyMovie,SLOT(processNumber(QString)));
     QObject::connect(&CFantasyMovie, SIGNAL(movieSelected(QVariant)), window, SLOT(changeTitle(QVariant)));
 
